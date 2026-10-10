@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Design tokens: cool "planning paper" base, ink-navy text, ultramarine for actions,
+   priority colours used only as the index-card tab on each task. */
+:root {
+  --paper: #e4eaf0;
+  --surface: #f5f8fb;
+  --card: #ffffff;
+  --ink: #17233a;
+  --muted: #56667d;
+  --line: #c6d0dc;
+  --accent: #2b44c9;
+  --accent-ink: #ffffff;
+  --focus: #f2b200;
+  --high: #c43d36;
+  --medium: #d99a00;
+  --low: #6a8aac;
+  --danger: #b4302a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111926;
+    --surface: #182233;
+    --card: #212d40;
+    --ink: #e6ecf4;
+    --muted: #9aa8bc;
+    --line: #33425a;
+    --accent: #8191ff;
+    --accent-ink: #0d1424;
+    --high: #f0726b;
+    --medium: #f2c14e;
+    --low: #8fb0d3;
+    --danger: #ff8a80;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-focus: var(--focus);
+  --color-high: var(--high);
+  --color-medium: var(--medium);
+  --color-low: var(--low);
+  --color-danger: var(--danger);
+  --font-display: "Bricolage Grotesque Variable", "Avenir Next", system-ui, sans-serif;
+  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
